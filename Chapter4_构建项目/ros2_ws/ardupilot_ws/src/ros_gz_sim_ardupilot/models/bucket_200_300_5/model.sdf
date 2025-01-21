@@ -1,0 +1,69 @@
+<?xml version='1.0'?>
+<sdf version='1.9'>
+  <model name='bucket_200_300_5'>
+    <pose>0 0 0 0 0 0</pose>
+    <link name='base_link'>
+      <velocity_decay>
+        <linear>0.0</linear>
+        <angular>0.0</angular>
+      </velocity_decay>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.008</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.015</iyy>
+          <iyz>0</iyz>
+          <izz>0.017</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_collision'>
+        <pose>0 0 0.15 0 0 0</pose>
+        <geometry>
+         <cylinder>
+          <radius>0.075</radius>
+          <length>0.30</length>
+        </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>100.0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='base_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/bucket_200_300_1.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.05 0.05 0.05 1</ambient> <!-- 环境光较低，增加一点微弱的环境光效果 -->
+          <diffuse>0.8 0.8 0.8 1</diffuse> <!-- 高漫反射值，代表白色塑料的主体颜色 -->
+          <specular>0.5 0.5 0.5 1</specular> <!-- 适中的镜面反射值，增加塑料的光泽感 -->
+          <pbr>
+            <metal>
+              <albedo_map>materials/textures/1.jpg</albedo_map>
+              <!-- <ambient_occlusion_map>materials/textures/_0128_White.png</ambient_occlusion_map>
+              <normal_map>materials/textures/_0128_White.png</normal_map>
+              <roughness_map>materials/textures/_0128_White.png</roughness_map> -->
+              <metalness>0</metalness>
+              <roughness>0.7</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

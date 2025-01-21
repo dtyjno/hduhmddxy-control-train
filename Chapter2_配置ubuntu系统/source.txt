@@ -1,0 +1,137 @@
+sudo service NetworkManager restart
+解决方法# 删除NetworkManager缓存文件# 
+sudo service NetworkManager stop
+sudo rm /var/lib/NetworkManager/NetworkManager.state
+sudo service NetworkManager start
+sudo gedit /etc/NetworkManager/NetworkManager.conf
+
+rfkill list all
+sudo modprobe -r ideapad_laptop
+
+sudo dpkg -i bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu10~22.04.1_amd64.deb 
+
+sudo dhclient enp6s0
+
+
+nmcli d
+ifconfig -a
+sudo gedit /etc/netplan/01-network-manager-all.yaml 
+  ethernets:
+    enp6s0:  #网卡名称
+      dhcp4: true   #自动分配ip地址
+netplan try
+netplan apply
+
+lspci | grep -i net
+
+
+1.备份原始源文件sources.list
+
+　　终端执行命令：
+
+    　　sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+2.修改源文件sources.list
+
+（1）赋予权限使其可编辑
+
+    　　sudo chmod 777 /etc/apt/sources.list
+
+（2）打开文件进行编辑
+
+    　　sudo gedit /etc/apt/sources.list
+
+（3）删除原来的文件内容，复制源；
+
+ 
+
+
+清华源
+
+https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
+
+ 
+
+阿里源
+
+https://developer.aliyun.com/mirror/ubuntu
+
+
+ 
+
+3.更新源
+
+　终端执行命令：
+
+    　　sudo apt update
+
+    　　sudo apt upgrade
+
+ 
+4.更新依赖(意外情况)
+
+　upgrade 执行后，提示有依赖缺失，根据提示执行命令：
+
+    　　apt --fix-broken install
+
+
+更新pip源
+（a）Linux下，修改 ~/.pip/pip.conf (没有就创建一个文件夹及文件。文件夹要加“.”，表示是隐藏文件夹)
+内容如下：
+
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = https://pypi.tuna.tsinghua.edu.cn
+
+
+
+
+在 Ubuntu 终端中安装 Microsoft Edge
+
+从终端安装 Microsoft Edge只需几个简单的步骤。首先，更新包索引。
+
+$ sudo apt update
+
+接下来，安装所需的依赖项以使安装无缝工作。
+
+$ sudo apt install wget software-properties-common apt-transport-https
+
+然后将Microsoft Edge 存储库添加到您的系统。
+
+$ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main"
+
+添加存储库后，再次更新包索引以与新添加的 Microsoft Edge 存储库同步。
+
+$ sudo apt update
+
+最后，使用以下命令安装 Microsoft Edge 浏览器：
+
+$ sudo apt install microsoft-edge-stable
+
+
+
+ GPG error: The following signatures couldn't be verified because the public key is not available解决方法
+
+Linux如果使用国内的源，当使用apt安装或更新某些应用时，会返回错误提示：
+
+GPG error: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B6733A7A07516CAD
+
+解决方法：
+
+//用错误提示中的公钥
+sudo gpg --keyserver keyserver.ubuntu.com --recv F42ED6FBAB17C654
+sudo gpg --export --armor F42ED6FBAB17C654 | sudo apt-key add -
+sudo apt-get update
+
+最后，使用以下命令安装 Microsoft Edge 浏览器：
+
+$ sudo apt install microsoft-edge-stable
+
+scp -r px4_ros_com dxyros@192.168.43.193:/ardupilot_ws/
+
+
+
+ssh hzplus@192.168.43.85
+ssh dxyros@192.168.43.193
+ssh root@192.168.43.85

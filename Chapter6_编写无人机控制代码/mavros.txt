@@ -1,0 +1,514 @@
+https://mavlink.io/en/messages/common.html#MAV_FRAME
+ros2 topic list -v
+Published topics:
+ * /diagnostics [diagnostic_msgs/msg/DiagnosticArray] 2 publishers
+   /mavros/adsb/vehicle [mavros_msgs/msg/ADSBVehicle] 1 publisher
+ * /mavros/battery [sensor_msgs/msg/BatteryState] 1 publisher
+   /mavros/cam_imu_sync/cam_imu_stamp [mavros_msgs/msg/CamIMUStamp] 1 publisher
+   /mavros/camera/image_captured [mavros_msgs/msg/CameraImageCaptured] 1 publisher
+   /mavros/esc_status/info [mavros_msgs/msg/ESCInfo] 1 publisher
+   /mavros/esc_status/status [mavros_msgs/msg/ESCStatus] 1 publisher
+   /mavros/esc_telemetry/telemetry [mavros_msgs/msg/ESCTelemetry] 1 publisher
+   /mavros/estimator_status [mavros_msgs/msg/EstimatorStatus] 1 publisher
+   /mavros/extended_state [mavros_msgs/msg/ExtendedState] 1 publisher
+ * /mavros/geofence/fences [mavros_msgs/msg/WaypointList] 1 publisher
+ * /mavros/global_position/compass_hdg [std_msgs/msg/Float64] 1 publisher
+ * /mavros/global_position/global [sensor_msgs/msg/NavSatFix] 1 publisher
+ * /mavros/global_position/gp_lp_offset [geometry_msgs/msg/PoseStamped] 1 publisher
+ * /mavros/global_position/gp_origin [geographic_msgs/msg/GeoPointStamped] 1 publisher
+ * /mavros/global_position/local [nav_msgs/msg/Odometry] 1 publisher
+ * /mavros/global_position/raw/fix [sensor_msgs/msg/NavSatFix] 1 publisher
+ * /mavros/global_position/raw/gps_vel [geometry_msgs/msg/TwistStamped] 1 publisher
+ * /mavros/global_position/raw/satellites [std_msgs/msg/UInt32] 1 publisher
+ * /mavros/global_position/rel_alt [std_msgs/msg/Float64] 1 publisher
+ * /mavros/gps_rtk/rtk_baseline [mavros_msgs/msg/RTKBaseline] 1 publisher
+ * /mavros/gpsstatus/gps1/raw [mavros_msgs/msg/GPSRAW] 1 publisher
+ * /mavros/gpsstatus/gps1/rtk [mavros_msgs/msg/GPSRTK] 1 publisher
+ * /mavros/gpsstatus/gps2/raw [mavros_msgs/msg/GPSRAW] 1 publisher
+ * /mavros/gpsstatus/gps2/rtk [mavros_msgs/msg/GPSRTK] 1 publisher
+ * /mavros/home_position/home [mavros_msgs/msg/HomePosition] 1 publisher
+ * /mavros/imu/data [sensor_msgs/msg/Imu] 1 publisher
+ * /mavros/imu/data_raw [sensor_msgs/msg/Imu] 1 publisher
+ * /mavros/imu/diff_pressure [sensor_msgs/msg/FluidPressure] 1 publisher
+ * /mavros/imu/mag [sensor_msgs/msg/MagneticField] 1 publisher
+ * /mavros/imu/static_pressure [sensor_msgs/msg/FluidPressure] 1 publisher
+ * /mavros/imu/temperature_baro [sensor_msgs/msg/Temperature] 1 publisher
+ * /mavros/imu/temperature_imu [sensor_msgs/msg/Temperature] 1 publisher
+ * /mavros/landing_target/lt_marker [geometry_msgs/msg/Vector3Stamped] 1 publisher
+ * /mavros/landing_target/pose_in [geometry_msgs/msg/PoseStamped] 1 publisher
+ * /mavros/local_position/accel [geometry_msgs/msg/AccelWithCovarianceStamped] 1 publisher
+ * /mavros/local_position/odom [nav_msgs/msg/Odometry] 1 publisher
+ * /mavros/local_position/pose [geometry_msgs/msg/PoseStamped] 1 publisher
+ * /mavros/local_position/pose_cov [geometry_msgs/msg/PoseWithCovarianceStamped] 1 publisher
+ * /mavros/local_position/velocity_body [geometry_msgs/msg/TwistStamped] 1 publisher
+ * /mavros/local_position/velocity_body_cov [geometry_msgs/msg/TwistWithCovarianceStamped] 1 publisher
+ * /mavros/local_position/velocity_local [geometry_msgs/msg/TwistStamped] 1 publisher
+ * /mavros/log_transfer/raw/log_data [mavros_msgs/msg/LogData] 1 publisher
+ * /mavros/log_transfer/raw/log_entry [mavros_msgs/msg/LogEntry] 1 publisher
+ * /mavros/mag_calibration/report [mavros_msgs/msg/MagnetometerReporter] 1 publisher
+ * /mavros/mag_calibration/status [std_msgs/msg/UInt8] 1 publisher
+ * /mavros/manual_control/control [mavros_msgs/msg/ManualControl] 1 publisher
+ * /mavros/mission/reached [mavros_msgs/msg/WaypointReached] 1 publisher
+ * /mavros/mission/waypoints [mavros_msgs/msg/WaypointList] 1 publisher
+ * /mavros/mount_control/orientation [geometry_msgs/msg/Quaternion] 1 publisher
+ * /mavros/mount_control/status [geometry_msgs/msg/Vector3Stamped] 1 publisher
+ * /mavros/nav_controller_output/output [mavros_msgs/msg/NavControllerOutput] 1 publisher
+ * /mavros/odometry/in [nav_msgs/msg/Odometry] 1 publisher
+ * /mavros/optical_flow/ground_distance [sensor_msgs/msg/Range] 1 publisher
+ * /mavros/optical_flow/raw/optical_flow [mavros_msgs/msg/OpticalFlow] 1 publisher
+ * /mavros/param/event [mavros_msgs/msg/ParamEvent] 1 publisher
+ * /mavros/radio_status [mavros_msgs/msg/RadioStatus] 1 publisher
+ * /mavros/rallypoint/rallypoints [mavros_msgs/msg/WaypointList] 1 publisher
+ * /mavros/rangefinder/rangefinder [sensor_msgs/msg/Range] 1 publisher
+ * /mavros/rangefinder_pub [sensor_msgs/msg/Range] 1 publisher
+ * /mavros/rc/in [mavros_msgs/msg/RCIn] 1 publisher
+ * /mavros/rc/out [mavros_msgs/msg/RCOut] 1 publisher
+ * /mavros/setpoint_raw/target_attitude [mavros_msgs/msg/AttitudeTarget] 1 publisher
+ * /mavros/setpoint_raw/target_global [mavros_msgs/msg/GlobalPositionTarget] 1 publisher
+ * /mavros/setpoint_raw/target_local [mavros_msgs/msg/PositionTarget] 1 publisher
+ * /mavros/setpoint_trajectory/desired [nav_msgs/msg/Path] 1 publisher
+ * /mavros/state [mavros_msgs/msg/State] 1 publisher
+ * /mavros/status_event [mavros_msgs/msg/StatusEvent] 1 publisher
+ * /mavros/statustext/recv [mavros_msgs/msg/StatusText] 1 publisher
+ * /mavros/sys_status [mavros_msgs/msg/SysStatus] 1 publisher
+ * /mavros/terrain/report [mavros_msgs/msg/TerrainReport] 1 publisher
+ * /mavros/time_reference [sensor_msgs/msg/TimeReference] 1 publisher
+ * /mavros/timesync_status [mavros_msgs/msg/TimesyncStatus] 1 publisher
+ * /mavros/trajectory/desired [mavros_msgs/msg/Trajectory] 1 publisher
+ * /mavros/tunnel/out [mavros_msgs/msg/Tunnel] 1 publisher
+ * /mavros/vfr_hud [mavros_msgs/msg/VfrHud] 1 publisher
+ * /mavros/wind_estimation [geometry_msgs/msg/TwistWithCovarianceStamped] 1 publisher
+ * /move_base_simple/goal [geometry_msgs/msg/PoseStamped] 1 publisher
+ * /parameter_events [rcl_interfaces/msg/ParameterEvent] 57 publishers
+ * /rosout [rcl_interfaces/msg/Log] 58 publishers
+ * /tf [tf2_msgs/msg/TFMessage] 1 publisher
+ * /tf_static [tf2_msgs/msg/TFMessage] 1 publisher
+ * /uas1/mavlink_sink [mavros_msgs/msg/Mavlink] 1 publisher
+ * /uas1/mavlink_source [mavros_msgs/msg/Mavlink] 1 publisher
+
+Subscribed topics:
+ * /mavros/adsb/send [mavros_msgs/msg/ADSBVehicle] 1 subscriber
+ * /mavros/cellular_status/status [mavros_msgs/msg/CellularStatus] 1 subscriber
+ * /mavros/companion_process/status [mavros_msgs/msg/CompanionProcessStatus] 1 subscriber
+ * /mavros/fake_gps/mocap/pose [geometry_msgs/msg/PoseStamped] 1 subscriber
+ * /mavros/global_position/global [sensor_msgs/msg/NavSatFix] 1 subscriber
+ * /mavros/global_position/gp_origin [geographic_msgs/msg/GeoPointStamped] 1 subscriber
+ * /mavros/global_position/set_gp_origin [geographic_msgs/msg/GeoPointStamped] 1 subscriber
+ * /mavros/gps_input/gps_input [mavros_msgs/msg/GPSINPUT] 1 subscriber
+ * /mavros/gps_rtk/send_rtcm [mavros_msgs/msg/RTCM] 1 subscriber
+ * /mavros/home_position/home [mavros_msgs/msg/HomePosition] 1 subscriber
+ * /mavros/home_position/set [mavros_msgs/msg/HomePosition] 1 subscriber
+ * /mavros/landing_target/pose [geometry_msgs/msg/PoseStamped] 1 subscriber
+ * /mavros/local_position/pose [geometry_msgs/msg/PoseStamped] 1 subscriber
+ * /mavros/manual_control/send [mavros_msgs/msg/ManualControl] 1 subscriber
+ * /mavros/mocap/pose [geometry_msgs/msg/PoseStamped] 1 subscriber
+ * /mavros/mocap/tf [geometry_msgs/msg/TransformStamped] 1 subscriber
+ * /mavros/mount_control/command [mavros_msgs/msg/MountControl] 1 subscriber
+ * /mavros/obstacle/send [sensor_msgs/msg/LaserScan] 1 subscriber
+ * /mavros/odometry/out [nav_msgs/msg/Odometry] 1 subscriber
+ * /mavros/onboard_computer/status [mavros_msgs/msg/OnboardComputerStatus] 1 subscriber
+ * /mavros/optical_flow/raw/send [mavros_msgs/msg/OpticalFlow] 1 subscriber
+ * /mavros/play_tune [mavros_msgs/msg/PlayTuneV2] 1 subscriber
+ * /mavros/rangefinder_sub [sensor_msgs/msg/Range] 1 subscriber
+ * /mavros/rc/override [mavros_msgs/msg/OverrideRCIn] 1 subscriber
+ * /mavros/setpoint_accel/accel [geometry_msgs/msg/Vector3Stamped] 1 subscriber
+ * /mavros/setpoint_attitude/cmd_vel [geometry_msgs/msg/TwistStamped] 1 subscriber
+ * /mavros/setpoint_attitude/thrust [mavros_msgs/msg/Thrust] 1 subscriber
+ * /mavros/setpoint_position/global [geographic_msgs/msg/GeoPoseStamped] 1 subscriber
+ * /mavros/setpoint_position/global_to_local [geographic_msgs/msg/GeoPoseStamped] 1 subscriber
+ * /mavros/setpoint_position/local [geometry_msgs/msg/PoseStamped] 1 subscriber
+ * /mavros/setpoint_raw/attitude [mavros_msgs/msg/AttitudeTarget] 1 subscriber
+ * /mavros/setpoint_raw/global [mavros_msgs/msg/GlobalPositionTarget] 1 subscriber
+ * /mavros/setpoint_raw/local [mavros_msgs/msg/PositionTarget] 1 subscriber
+ * /mavros/setpoint_trajectory/local [trajectory_msgs/msg/MultiDOFJointTrajectory] 1 subscriber
+ * /mavros/setpoint_velocity/cmd_vel [geometry_msgs/msg/TwistStamped] 1 subscriber
+ * /mavros/setpoint_velocity/cmd_vel_unstamped [geometry_msgs/msg/Twist] 1 subscriber
+ * /mavros/statustext/send [mavros_msgs/msg/StatusText] 1 subscriber
+ * /mavros/trajectory/generated [mavros_msgs/msg/Trajectory] 1 subscriber
+ * /mavros/trajectory/path [nav_msgs/msg/Path] 1 subscriber
+ * /mavros/tunnel/in [mavros_msgs/msg/Tunnel] 1 subscriber
+ * /mavros/vision_pose/pose [geometry_msgs/msg/PoseStamped] 1 subscriber
+ * /mavros/vision_pose/pose_cov [geometry_msgs/msg/PoseWithCovarianceStamped] 1 subscriber
+ * /mavros/vision_speed/speed_twist [geometry_msgs/msg/TwistStamped] 1 subscriber
+ * /mavros/vision_speed/speed_twist_cov [geometry_msgs/msg/TwistWithCovarianceStamped] 1 subscriber
+ * /mavros/vision_speed/speed_vector [geometry_msgs/msg/Vector3Stamped] 1 subscriber
+ * /parameter_events [rcl_interfaces/msg/ParameterEvent] 56 subscribers
+ * /tf [tf2_msgs/msg/TFMessage] 1 subscriber
+ * /tf_static [tf2_msgs/msg/TFMessage] 1 subscriber
+ * /uas1/mavlink_sink [mavros_msgs/msg/Mavlink] 1 subscriber
+ * /uas1/mavlink_source [mavros_msgs/msg/Mavlink] 1 subscriber
+ 
+ ros2 service list -t
+/mavros/adsb/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/adsb/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/adsb/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/adsb/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/adsb/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/adsb/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/cam_imu_sync/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/cam_imu_sync/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/cam_imu_sync/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/cam_imu_sync/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/cam_imu_sync/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/cam_imu_sync/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/camera/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/camera/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/camera/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/camera/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/camera/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/camera/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/cellular_status/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/cellular_status/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/cellular_status/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/cellular_status/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/cellular_status/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/cellular_status/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/cmd/arming [mavros_msgs/srv/CommandBool]
+/mavros/cmd/command [mavros_msgs/srv/CommandLong]
+/mavros/cmd/command_int [mavros_msgs/srv/CommandInt]
+/mavros/cmd/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/cmd/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/cmd/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/cmd/land [mavros_msgs/srv/CommandTOL]
+/mavros/cmd/land_local [mavros_msgs/srv/CommandTOLLocal]
+/mavros/cmd/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/cmd/set_home [mavros_msgs/srv/CommandHome]
+/mavros/cmd/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/cmd/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/cmd/takeoff [mavros_msgs/srv/CommandTOL]
+/mavros/cmd/takeoff_local [mavros_msgs/srv/CommandTOLLocal]
+/mavros/cmd/trigger_control [mavros_msgs/srv/CommandTriggerControl]
+/mavros/cmd/trigger_interval [mavros_msgs/srv/CommandTriggerInterval]
+/mavros/cmd/vtol_transition [mavros_msgs/srv/CommandVtolTransition]
+/mavros/companion_process/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/companion_process/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/companion_process/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/companion_process/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/companion_process/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/companion_process/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/distance_sensor/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/distance_sensor/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/distance_sensor/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/distance_sensor/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/distance_sensor/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/distance_sensor/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/esc_status/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/esc_status/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/esc_status/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/esc_status/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/esc_status/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/esc_status/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/esc_telemetry/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/esc_telemetry/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/esc_telemetry/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/esc_telemetry/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/esc_telemetry/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/esc_telemetry/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/fake_gps/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/fake_gps/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/fake_gps/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/fake_gps/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/fake_gps/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/fake_gps/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/geofence/clear [mavros_msgs/srv/WaypointClear]
+/mavros/geofence/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/geofence/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/geofence/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/geofence/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/geofence/pull [mavros_msgs/srv/WaypointPull]
+/mavros/geofence/push [mavros_msgs/srv/WaypointPush]
+/mavros/geofence/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/geofence/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/global_position/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/global_position/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/global_position/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/global_position/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/global_position/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/global_position/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/gps_input/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/gps_input/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/gps_input/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/gps_input/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/gps_input/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/gps_input/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/gps_rtk/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/gps_rtk/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/gps_rtk/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/gps_rtk/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/gps_rtk/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/gps_rtk/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/gpsstatus/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/gpsstatus/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/gpsstatus/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/gpsstatus/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/gpsstatus/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/gpsstatus/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/guided_target/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/guided_target/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/guided_target/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/guided_target/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/guided_target/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/guided_target/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/home_position/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/home_position/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/home_position/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/home_position/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/home_position/req_update [std_srvs/srv/Trigger]
+/mavros/home_position/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/home_position/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/imu/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/imu/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/imu/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/imu/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/imu/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/imu/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/landing_target/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/landing_target/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/landing_target/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/landing_target/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/landing_target/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/landing_target/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/local_position/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/local_position/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/local_position/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/local_position/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/local_position/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/local_position/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/log_transfer/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/log_transfer/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/log_transfer/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/log_transfer/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/log_transfer/raw/log_request_data [mavros_msgs/srv/LogRequestData]
+/mavros/log_transfer/raw/log_request_end [mavros_msgs/srv/LogRequestEnd]
+/mavros/log_transfer/raw/log_request_erase [std_srvs/srv/Trigger]
+/mavros/log_transfer/raw/log_request_list [mavros_msgs/srv/LogRequestList]
+/mavros/log_transfer/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/log_transfer/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/mag_calibration/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/mag_calibration/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/mag_calibration/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/mag_calibration/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/mag_calibration/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/mag_calibration/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/manual_control/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/manual_control/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/manual_control/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/manual_control/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/manual_control/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/manual_control/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/mavros/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/mavros/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/mavros/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/mavros/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/mavros/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/mavros/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/mavros_node/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/mavros_node/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/mavros_node/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/mavros_node/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/mavros_node/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/mavros_node/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/mavros_router/add_endpoint [mavros_msgs/srv/EndpointAdd]
+/mavros/mavros_router/del_endpoint [mavros_msgs/srv/EndpointDel]
+/mavros/mavros_router/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/mavros_router/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/mavros_router/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/mavros_router/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/mavros_router/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/mavros_router/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/mission/clear [mavros_msgs/srv/WaypointClear]
+/mavros/mission/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/mission/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/mission/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/mission/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/mission/pull [mavros_msgs/srv/WaypointPull]
+/mavros/mission/push [mavros_msgs/srv/WaypointPush]
+/mavros/mission/set_current [mavros_msgs/srv/WaypointSetCurrent]
+/mavros/mission/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/mission/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/mocap/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/mocap/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/mocap/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/mocap/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/mocap/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/mocap/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/mount_control/configure [mavros_msgs/srv/MountConfigure]
+/mavros/mount_control/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/mount_control/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/mount_control/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/mount_control/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/mount_control/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/mount_control/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/nav_controller_output/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/nav_controller_output/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/nav_controller_output/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/nav_controller_output/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/nav_controller_output/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/nav_controller_output/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/obstacle/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/obstacle/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/obstacle/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/obstacle/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/obstacle/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/obstacle/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/odometry/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/odometry/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/odometry/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/odometry/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/odometry/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/odometry/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/onboard_computer/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/onboard_computer/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/onboard_computer/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/onboard_computer/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/onboard_computer/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/onboard_computer/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/optical_flow/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/optical_flow/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/optical_flow/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/optical_flow/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/optical_flow/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/optical_flow/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/param/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/param/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/param/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/param/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/param/pull [mavros_msgs/srv/ParamPull]
+/mavros/param/set [mavros_msgs/srv/ParamSetV2]
+/mavros/param/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/param/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/play_tune/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/play_tune/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/play_tune/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/play_tune/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/play_tune/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/play_tune/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/rallypoint/clear [mavros_msgs/srv/WaypointClear]
+/mavros/rallypoint/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/rallypoint/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/rallypoint/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/rallypoint/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/rallypoint/pull [mavros_msgs/srv/WaypointPull]
+/mavros/rallypoint/push [mavros_msgs/srv/WaypointPush]
+/mavros/rallypoint/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/rallypoint/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/rangefinder/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/rangefinder/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/rangefinder/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/rangefinder/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/rangefinder/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/rangefinder/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/rc/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/rc/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/rc/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/rc/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/rc/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/rc/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/set_message_interval [mavros_msgs/srv/MessageInterval]
+/mavros/set_mode [mavros_msgs/srv/SetMode]
+/mavros/set_stream_rate [mavros_msgs/srv/StreamRate]
+/mavros/setpoint_accel/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/setpoint_accel/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/setpoint_accel/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/setpoint_accel/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/setpoint_accel/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/setpoint_accel/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/setpoint_attitude/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/setpoint_attitude/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/setpoint_attitude/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/setpoint_attitude/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/setpoint_attitude/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/setpoint_attitude/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/setpoint_position/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/setpoint_position/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/setpoint_position/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/setpoint_position/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/setpoint_position/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/setpoint_position/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/setpoint_raw/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/setpoint_raw/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/setpoint_raw/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/setpoint_raw/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/setpoint_raw/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/setpoint_raw/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/setpoint_trajectory/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/setpoint_trajectory/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/setpoint_trajectory/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/setpoint_trajectory/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/setpoint_trajectory/reset [std_srvs/srv/Trigger]
+/mavros/setpoint_trajectory/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/setpoint_trajectory/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/setpoint_velocity/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/setpoint_velocity/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/setpoint_velocity/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/setpoint_velocity/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/setpoint_velocity/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/setpoint_velocity/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/sys/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/sys/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/sys/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/sys/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/sys/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/sys/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/tdr_radio/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/tdr_radio/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/tdr_radio/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/tdr_radio/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/tdr_radio/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/tdr_radio/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/terrain/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/terrain/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/terrain/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/terrain/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/terrain/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/terrain/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/time/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/time/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/time/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/time/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/time/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/time/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/trajectory/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/trajectory/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/trajectory/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/trajectory/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/trajectory/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/trajectory/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/tunnel/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/tunnel/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/tunnel/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/tunnel/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/tunnel/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/tunnel/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/vehicle_info_get [mavros_msgs/srv/VehicleInfoGet]
+/mavros/vfr_hud/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/vfr_hud/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/vfr_hud/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/vfr_hud/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/vfr_hud/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/vfr_hud/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/vision_pose/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/vision_pose/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/vision_pose/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/vision_pose/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/vision_pose/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/vision_pose/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/vision_speed/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/vision_speed/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/vision_speed/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/vision_speed/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/vision_speed/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/vision_speed/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/mavros/wind/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/mavros/wind/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/mavros/wind/get_parameters [rcl_interfaces/srv/GetParameters]
+/mavros/wind/list_parameters [rcl_interfaces/srv/ListParameters]
+/mavros/wind/set_parameters [rcl_interfaces/srv/SetParameters]
+/mavros/wind/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/rqt_gui_py_node_19230/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/rqt_gui_py_node_19230/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/rqt_gui_py_node_19230/get_parameters [rcl_interfaces/srv/GetParameters]
+/rqt_gui_py_node_19230/list_parameters [rcl_interfaces/srv/ListParameters]
+/rqt_gui_py_node_19230/set_parameters [rcl_interfaces/srv/SetParameters]
+/rqt_gui_py_node_19230/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+
