@@ -36,16 +36,16 @@
 [Chapter1_基本控制算法-PID 考核](Chapter1_基本控制算法-PID/README.md)
 
 代码运行环境配置及仿真环境配置：  
-[Chapter2_配置ubuntu系统 安装结果不考核](Chapter2_配置ubuntu系统\READEME.md)  
-[Chapter3_解决方案概述&仿真环境配置-APM-SITL&Gazebo 安装结果不考核](Chapter3_解决方案概述&仿真环境配置-APM-SITL&Gazebo\README.md)  
+[Chapter2_配置ubuntu系统 安装结果不考核](Chapter2_配置ubuntu系统/READEME.md) 
+[Chapter3_解决方案概述&仿真环境配置-APM-SITL&Gazebo 安装结果不考核](Chapter3_解决方案概述&仿真环境配置-APM-SITL&Gazebo/README.md)  
 
 控制项目构建与代码实战：  
-[Chapter4_构建项目 不考核](Chapter4_构建项目\README.md)  
-[Chapter5_学习无人机起飞代码 考核](Chapter5_学习无人机起飞代码\README.md)  
-[Chapter6_编写无人机控制代码 不考核](Chapter6_编写无人机控制代码\README.md)  
+[Chapter4_构建项目 不考核](Chapter4_构建项目/README.md)  
+[Chapter5_学习无人机起飞代码 考核](Chapter5_学习无人机起飞代码/README.md)  
+[Chapter6_编写无人机控制代码 不考核](Chapter6_编写无人机控制代码/README.md)  
 
 总结与展望：  
-[Chapter7_准备真机实战 不考核](Chapter7_准备真机实战\README.md)
+[Chapter7_准备真机实战 不考核](Chapter7_准备真机实战/README.md)
 
 ### 工具学习
 先看任务，根据项目的需要自行筛选必要的知识进行学习，不必面面俱到，有需要时求助ai等。私下里可以继续学习完整内容完善整体知识架构  
@@ -66,8 +66,8 @@ https://docs.ros.org/en/rolling/Tutorials/Beginner-CLI-Tools.html
 图像识别代码位于`kongzhipeixun\Chapter2_配置ubuntu系统\ros2CV_ws\src`   
 (GitHub存储库)[https://github.com/ctoLuu/ros2-yolov5];  
 
-控制与仿真代码位于`Chapter4_构建项目\ros2_ws`  
-(GitHub存储库)[https://github.com/Hz1234567890/offboard];  
+控制与仿真代码位于`Chapter4_构建项目\ros2_ws.tar`   
+(上机代码的GitHub存储库)[https://github.com/Hz1234567890/offboard];  
 
 可以自行了解
 
