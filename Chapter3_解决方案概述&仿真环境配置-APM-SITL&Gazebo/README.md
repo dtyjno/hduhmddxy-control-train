@@ -40,6 +40,23 @@ Chapter5_编写无人机控制代码\2024中国大学生飞行器设计创新大
 
 ### 2. 安装ardupilot仿真（即ardupilot sitl 与 mavros以及gazebo）不考核
 
+```sh
+git clone --recurse-submodules https://github.com/ArduPilot/ardupilot.git
+cd ardupilot
+Tools/environment_install/install-prereqs-ubuntu.sh -y
+#更新子模块git submodule update --init --recursive
+#重新加载路径（注销和登录以永久）：
+. ~/.profile
+./waf configure --board sitl
+./waf copter
+cd ardupilot/ArduCopter
+sim_vehicle.py -w
+sim_vehicle.py --console --map
+#export PATH="$HOME/ardupilot/Tools/autotest:$PATH"
+# sim_vehicle.py -w -v ArduCopter
+# sim_vehicle.py --vehicle=ArduCopter --console --map
+```
+
 自行了解各个仿真工具的功能
 
 如果你使用wsl2，你可以尝试[通过 Mission Planner 的模拟功能运行SITL](https://ardupilot.org/planner/docs/mission-planner-simulation.html#mission-planner-simulation)

@@ -100,7 +100,7 @@ autoProxy=true
 ```
 
 ---
-## WSL使用图形化界面
+## WSL使用图形化界面(最新版WSL2不需要配置)
 1. win安装xserver
    
 - 安装vcxsrv

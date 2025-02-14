@@ -43,6 +43,11 @@ sim_vehicle.py -w
 
 sim_vehicle.py --console --map
 
+报错：ImportError: /home/linhao/miniconda3/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.32' not found (required by /home/linhao/venv-ardupilot/lib/python3.12/site-packages/wx/_core.cpython-312-x86_64-linux-gnu.so)
+miniconda3环境文件中支持的GLIBCXX版本 strings /home/linhao/miniconda3/bin/../lib/libstdc++.so.6 | grep GLIBCXX
+系统环境文件中支持的GLIBCXX版本 strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
+解决：1.  conda install -c conda-forge libstdcxx-ng 2. 将anaconda环境中libstdc++.so和libstdc++.so.6的链接地址指向系统路径中的地址 rm ... ln -s ...
+
 # gazebo
 https://ardupilot.org/dev/docs/sitl-with-gazebo.html
 ......
