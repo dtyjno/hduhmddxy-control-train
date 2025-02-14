@@ -12,7 +12,7 @@
 1. 全部完成，展示配置过程中的学习笔记
    
 ### 1. 我该选择什么系统 不考核
-安装ubuntu24.04 （装新不装旧）
+安装ubuntu22.04
 
 双系统：  
 1. 如果硬盘空间有富余（>200G+）首选双系统，无性能损失，配置简便，一键重装
@@ -50,7 +50,7 @@ wget http://fishros.com/install -O fishros && . fishros
 
 示例3：
 1. 找到ros2官网
-2. 选择Releases：ubuntu24.04对应的ros2版本为 Jazzy (latest) https://docs.ros.org/en/jazzy/Installation.html
+2. 选择Releases：ubuntu22.04对应的ros2版本为  humble https://docs.ros.org/en/jazzy/Installation.html
 3. 选择Ubuntu包安装（了解源安装与二进制安装区别），跟着做。
 提示：仔细研读官方文档的每一句话，比如知道什么是可选项什么必装，以及不要漏依赖，如安装过程中大段文字中的蓝字需要仔细查看  
 
