@@ -65,6 +65,7 @@ sudo apt update
 sudo apt-get install ros-humble-mavros 
 sudo apt-get install ros-humble-mavros-extras
 
+
 #clone git仓库
 cd ~/
 mkdir ardupilot_ws
@@ -73,6 +74,7 @@ cd ardupilot_ws
 mv drone src # 更改为将附件中ardupilot_ws文件夹及其中内容移动到src文件夹下
 
 #GeographicLib 用于gps定位
+#解决[mavros_node-1]   what():  UAS: GeographicLib exception: File not readable /usr/share/GeographicLib/geoids/egm96-5.pgm | Run install_geographiclib_dataset.sh script in order to install Geoid Model dataset!报错
 cd ~/Downloads
 wget https://github.com/geographiclib/geographiclib/archive/refs/tags/v2.3.tar.gz
 tar xfpz v2.3.tar.gz 
@@ -86,6 +88,10 @@ cd BUILD
 #make install
  cmake ..  
   make 
+sudo make install
+
+sudo apt-get install geographiclib-tools
+sudo geographiclib-get-geoids egm96-5
 
 # colcon无法找到  geographiclib-config.cmake
   sudo ln -s /usr/share/cmake/geographiclib/FindGeographicLib.cmake /usr/share/cmake-3.22/Modules/
@@ -100,9 +106,17 @@ ros_gz_sim_ardupilot
 Chapter3的仿真环境
 https://ardupilot.org/dev/docs/sitl-with-gazebo.html
 
+[安装ArduPilot Gazebo 插件](https://github.com/ArduPilot/ardupilot_gazebo)
+
 ros2_interfaces
 
 无
+
+要编译软件包先执行以下命令
+```bash
+colcon build --packages-select ros2_interfaces
+source install/setup.bash
+```
 
 ### 启动程序
 
@@ -117,7 +131,30 @@ export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/gz_ws/src/ardupilot_gazebo/build:${GZ_SIM
 export GZ_SIM_RESOURCE_PATH=$HOME/ros2_ws/ardupilot_ws/src/ros_gz_sim_ardupilot/models:$HOME/ros2_ws/ardupilot_ws/src/ros_gz_sim_ardupilot/worlds:${GZ_SIM_SYSTEM_PLUGIN_PATH}; #指定gazebo的模型路径和地图路径
 ros2 launch ros_gz_sim_ardupilot iris_runway.launch.py; #脚本启动gz_sim_server， gz_sim_gui,和gazebo消息到ros2消息的桥接
 ```
+脚本示例
+```bash
+#!/bin/bash
+gnome-terminal -t "gazebo" -x bash -c "
+export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/gz_ws/src/ardupilot_gazebo/build:$GZ_SIM_SYSTEM_PLUGIN_PATH;
+export GZ_SIM_RESOURCE_PATH=$HOME/gz_ws/src/ardupilot_gazebo/models:$HOME/gz_ws/src/ardupilot_gazebo/worlds:$GZ_SIM_RESOURCE_PATH; 
+#gz sim -v4 -r iris_runway.sdf;
+#gz sim -v4 -r gimbal.sdf;
 
+export GZ_SIM_RESOURCE_PATH=$HOME/code/ros2/ardupilot_ws/src/ros_gz_sim_ardupilot/models:$HOME/code/ros2/ardupilot_ws/src/ros_gz_sim_ardupilot/worlds:${GZ_SIM_SYSTEM_PLUGIN_PATH};
+ros2 launch ros_gz_sim_ardupilot iris_runway.launch.py;
+"
+
+sleep 1s
+gnome-terminal -t "SITL" -x bash -c "
+#sim_vehicle.py -v ArduCopter -f gazebo-iris --model JSON --map --console;
+"
+sleep 10s
+gnome-terminal -t "mavros" -x bash -c "
+source /opt/ros/humble/setup.bash;
+ros2 launch mavros apm.launch fcu_url:=udp://127.0.0.1:14550@14555;
+"
+#gnome-terminal -t "mavproxy" -x bash -c "mavproxy.py --console --map --aircraft test --master=:14550"
+```
 运行script/中脚本以启动   
 当前环境为ubuntu24.04+ros2jazzy，如有需要自行更改脚本以适配依赖
 ```sh

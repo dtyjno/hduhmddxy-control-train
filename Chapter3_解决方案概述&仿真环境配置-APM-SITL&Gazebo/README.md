@@ -52,6 +52,8 @@ Tools/environment_install/install-prereqs-ubuntu.sh -y
 cd ardupilot/ArduCopter
 sim_vehicle.py -w
 sim_vehicle.py --console --map
+# 查看具体报错
+./sim_vehicle.py -v ArduCopter --console --map --moddebug 3
 #export PATH="$HOME/ardupilot/Tools/autotest:$PATH"
 # sim_vehicle.py -w -v ArduCopter
 # sim_vehicle.py --vehicle=ArduCopter --console --map
