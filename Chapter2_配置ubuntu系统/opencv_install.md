@@ -15,6 +15,13 @@
 - Git
 - CUDA Toolkit（确保CUDA与您的GPU兼容）
 - Python（用于配置和测试）
+```bash
+#config cuda
+export CUDA_HOME=/usr/local/cuda-12.(具体版本)
+export PATH=$PATH:$CUDA_HOME/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/extras/CUPTI/lib64
+```
 
 ## 步骤1：下载OpenCV和OpenCV Contrib源代码
 首先，克隆OpenCV和OpenCV Contrib的源代码仓库：
@@ -40,7 +47,18 @@ cd build
 ## 步骤3：配置CMake
 使用CMake配置OpenCV构建选项，确保启用CUDA支持并指定OpenCV Contrib模块路径：
 ```sh
-cmake -D CMAKE_BUILD_TYPE=Release       -D CMAKE_INSTALL_PREFIX=/usr/local       -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules       -D WITH_CUDA=ON       -D CUDA_ARCH_BIN=8.9       -D CUDA_ARCH_PTX=       -D WITH_CUDNN=ON       -D OPENCV_DNN_CUDA=ON       -D ENABLE_FAST_MATH=1       -D CUDA_FAST_MATH=1       -D WITH_CUBLAS=1       ../ #../opencv
+cmake -D CMAKE_BUILD_TYPE=Release\
+      -D CMAKE_INSTALL_PREFIX=/usr/local\
+      -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules\
+      -D WITH_CUDA=ON\
+      -D CUDA_ARCH_BIN=8.9\
+      -D CUDA_ARCH_PTX=\
+      -D WITH_CUDNN=ON\
+      -D OPENCV_DNN_CUDA=ON\
+      -D ENABLE_FAST_MATH=1\
+      -D CUDA_FAST_MATH=1\
+      -D WITH_CUBLAS=1\
+      ../ #../opencv
 
 ```
 
@@ -71,8 +89,9 @@ cmake   -D CMAKE_BUILD_TYPE=Release\
 * -D OPENCV_EXTRA_MODULES_PATH= /home/opencv_contrib/modules需要填写你自己的opencv_contrib路径
 
 发现报错need enabled cudev，需要将opencv_contrib中的modules中的cudev文件夹复制到opencv/modules里
-cp -r /home/opencv_contrib/modules/cudev /home/opencv/modules/
-
+```
+cp -r ~/opencv/opencv_contrib/modules/cudev ~/opencv/modules/
+```
 ## 步骤4：编译和安装OpenCV
 使用以下命令编译和安装OpenCV：
 ```sh

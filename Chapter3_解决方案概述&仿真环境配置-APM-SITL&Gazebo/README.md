@@ -49,11 +49,11 @@ Tools/environment_install/install-prereqs-ubuntu.sh -y
 . ~/.profile
 ./waf configure --board sitl
 ./waf copter
-cd ardupilot/ArduCopter
+cd ArduCopter
 sim_vehicle.py -w
 sim_vehicle.py --console --map
 # 查看具体报错
-./sim_vehicle.py -v ArduCopter --console --map --moddebug 3
+sim_vehicle.py -v ArduCopter --console --map --moddebug 3
 #export PATH="$HOME/ardupilot/Tools/autotest:$PATH"
 # sim_vehicle.py -w -v ArduCopter
 # sim_vehicle.py --vehicle=ArduCopter --console --map
@@ -93,7 +93,101 @@ https://gazebosim.org/docs/fortress/ros2_gz_vendor_pkgs/
 
 提示：可以尝试了解ros2与ardupilot通过dds直接连接，但目前（2024年11月）该项目开发进度尚未到可使用水平（只支持模式转换，起飞降落）
 
-### 3. 启动仿真
+### 3. 安装gazebo
+#### sdf定义
+http://sdformat.org/spec?ver=1.12&elem=sensor
+#### 安装gazebo
+https://gazebosim.org/docs/harmonic/ros2_gz_vendor_pkgs/
+
+Articulated Roboticsh: Simulating Robots with Gazebo and ROS | Getting Ready to Build Robots with ROS #8 https://www.youtube.com/watch?v=laWn7_cj434
+
+gz-sensors:
+
+https://github.com/gazebosim/gz-sensors/tree/main?tab=readme-ov-file#usage
+
+ros_gz:
+
+https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos/launch
+
+gz-sim:
+
+https://github.com/gazebosim/gz-sim/tree/gz-sim8
+
+##### Installing Gazebo with ROS
+
+recommendation is that new users install:
+
+- Ubuntu Noble 24.04
+
+- ROS 2 Jazzy Jalisco
+
+- Gazebo Harmonic
+
+##### 通过ROS官方仓库安装默认版本的Gazebo及其与ROS的集成包ros_gz
+
+```
+sudo apt-get install ros-${ROS_DISTRO}-ros-gz
+```
+从供应商软件包运行 Gazebo
+为了能够使用该命令运行常用命令，请确保至少安装了 package。要在 PATH 中包含该命令， 源 从 像往常一样。gzgz_tools_vendorgzsetup.bash/opt/ros/${ROS_DISTRO}
+
+##### 在ROS中安装默认配对的Gazebo和ROS集成包（ros_gz）
+
+适用于希望快速搭建ROS-Gazebo开发环境的用户
+```
+export ROS_DISTRO=jazzy
+sudo apt-get install ros-${ROS_DISTRO}-gz-tools-vendor ros-${ROS_DISTRO}-gz-sim-vendor
+. /opt/ros/jazzy/setup.bash
+gz sim --help
+```
+gz-tools-vendor：提供gz命令行工具。
+gz-sim-vendor：提供Gazebo Sim仿真器与ROS 2的集成支持。
+
+##### 测试
+通过运行以下命令启动 Gazebo：
+```sh
+gz sim shapes.sdf  # Fortress uses "ign gazebo" instead of "gz sim"
+```
+此命令将启动 Sim 服务器和 Sim GUI，并显示一个世界 ，其中包含三个简单的形状。
+
+添加命令行参数以生成 error、warning 和 -v 4信息性消息和调试消息。
+```sh
+gz sim shapes.sdf -v 4  # Fortress uses "ign gazebo" instead of "gz sim"
+```
+Gazebo Sim 也可以使用 （仅服务器）-s 标志无头运行，即没有 GUI。
+```sh
+gz sim -s shapes.sdf -v 4  # Fortress uses "ign gazebo" instead of "gz sim"
+```
+同样，GUI 可以使用 （gui only） 标志独立运行。
+
+#### 从 ROS 2 启动 Gazebo 
+
+启动 Gazebo 服务器或 Gazebo（服务器和 GUI） 分别。
+
+ros2 launch ros_gz_sim gz_sim.launch.py --show-args
+
+
+ros2 launch ros_gz_sim gz_sim.launch.py gz_args:=empty.sdf
+
+或者你可以直接启动服务器：
+
+ros2 launch ros_gz_sim gz_server.launch.py world_sdf_file:=empty.sdf
+
+#### 关闭后终端卡住
+
+关闭 Gazebo 后，我们可能无法再在终端中键入内容。这（有时）是因为它的一部分已关闭，但启动文件仍在运行。我们需要在 Gazebo 终端窗口中按 Ctrl-C 来中断进程并停止它。
+
+#### 关闭后无法再次运行 Gazebo
+
+如果上述方法不起作用，或者如果它确实有效但 Gazebo 在下次启动时冻结，则可能存在未正确停止的部分。
+
+通常下面的命令会处理事情（最好先尝试不使用 sudo 或 -9）。
+```sh
+sudo killall -9 gazebo gzserver gzclient
+```
+
+
+### 4. 启动仿真
 #### 使用 SITL
 sim_vehicle.py
 提供了一个启动脚本，用于自动为当前代码分支构建 SITL 固件版本、加载仿真模型、启动仿真器、设置环境和车辆参数，以及启动 MAVProxy GCS。可以指定许多脚本启动参数，键入此参数可查看完整列表：
@@ -172,3 +266,20 @@ GUIDED> takeoff 5
 完成起飞操作后的界面
 ![gz](gz.png)
 
+### 5 报错
+
+
+报错：ImportError: /home/linhao/miniconda3/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.32' not found (required by /home/linhao/venv-ardupilot/lib/python3.12/site-packages/wx/_core.cpython-312-x86_64-linux-gnu.so)
+miniconda3环境文件中支持的GLIBCXX版本 
+```bash
+strings ~/miniconda3/lib/libstdc++.so.6 | grep GLIBCXX
+```
+系统环境文件中支持的GLIBCXX版本 
+```bash
+strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
+```
+解决：
+1. conda install -c conda-forge libstdcxx-ng 
+2. 将anaconda环境中libstdc++.so和libstdc++.so.6的链接地址指向系统路径中的地址 
+rm ... 
+ln -s ...

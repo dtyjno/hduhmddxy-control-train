@@ -14,6 +14,9 @@
         如安装上机代码且需要测试识别圆桶功能仅需按照ros_gz_sim_ardupilot软件包获取gazebo地图与gazebo中摄像头配置  
 
 
+git clone git@github.com:dtyjno/dxy_apm_ws.git
+git clone git@github.com:ak47k98/ros2_yolov8.git
+
 ### 1. 示例代码结构介绍 
 
 `ros2_ws` 项目是一个基于 ROS 2 框架的无人机控制项目，主要用于仿真和实际控制无人机。项目结构和功能如下：
