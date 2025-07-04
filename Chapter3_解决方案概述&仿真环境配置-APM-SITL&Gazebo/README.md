@@ -44,6 +44,15 @@ Chapter5_编写无人机控制代码\2024中国大学生飞行器设计创新大
 git clone --recurse-submodules https://github.com/ArduPilot/ardupilot.git
 cd ardupilot
 Tools/environment_install/install-prereqs-ubuntu.sh -y
+#ubuntu24.04:  
+# pip install future lxml pymavlink pyserial MAVProxy geocoder empy==3.3.4 ptyprocess dronecan flake8 junitparser wsproto tabulate  pygame intelhex numpy pyparsing psutil matplotlib scipy opencv-python pyyaml  wxpython opencv-python  -i https://pypi.tuna.tsinghua.edu.cn/simple
+# mavproxy:
+# vim /home/linhao/.local/lib/python3.13/site-packages/MAVProxy/modules/mavproxy_map/mp_tile.py
+# :615
+# img = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR)
+# :wq
+
+
 #更新子模块git submodule update --init --recursive
 #重新加载路径（注销和登录以永久）：
 . ~/.profile
@@ -126,6 +135,7 @@ recommendation is that new users install:
 ##### 通过ROS官方仓库安装默认版本的Gazebo及其与ROS的集成包ros_gz
 
 ```
+export ROS_DISTRO=jazzy
 sudo apt-get install ros-${ROS_DISTRO}-ros-gz
 ```
 从供应商软件包运行 Gazebo
@@ -268,7 +278,7 @@ GUIDED> takeoff 5
 
 ### 5 报错
 
-
+执行sim_vehicle.py -v ArduCopter --console --map --moddebug 3
 报错：ImportError: /home/linhao/miniconda3/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.32' not found (required by /home/linhao/venv-ardupilot/lib/python3.12/site-packages/wx/_core.cpython-312-x86_64-linux-gnu.so)
 miniconda3环境文件中支持的GLIBCXX版本 
 ```bash
@@ -281,5 +291,6 @@ strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
 解决：
 1. conda install -c conda-forge libstdcxx-ng 
 2. 将anaconda环境中libstdc++.so和libstdc++.so.6的链接地址指向系统路径中的地址 
-rm ... 
-ln -s ...
+rm ~/miniconda3/lib/libstdc++.so ~/miniconda3/lib/libstdc++.so.6
+ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6 ~/miniconda3/lib/libstdc++.so
+ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6 ~/miniconda3/lib/libstdc++.so.6
